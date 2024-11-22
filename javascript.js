@@ -1,3 +1,21 @@
+const zentrieren = document.querySelector(".buttons");
+
+zentrieren.style["background-color"] = "blue";
+zentrieren.style["alignContent"] = "center";
+
+
+const klickObjekt = document.querySelector(".buttons");
+
+klickObjekt.addEventListener("click", rundeSpielen);
+
+function rundeSpielen(e) {
+  console.log("eine runde wird gespielt");  
+  //mit e.target.id lässt sich im objekt (e) nach target (entspr button) und seiner id suchen
+  //mit getComputerChoice wird die Funktion ausgeführt, die dann als parameter in die funktion playRound einfließt
+  playRound(e.target.id, getComputerChoice());
+
+}
+
 
 console.log("bingli");
 
@@ -20,28 +38,6 @@ function getComputerChoice() {
     
 }
 
-function getHumanChoice() {
-
-let eingabe = prompt("Eingabe: ")
-
-return eingabe.toLowerCase();
-
-}
-
-
- 
-/* for (let i = 1; i < 10; i++) {
-
-  console.log(getComputerChoice());
-
-} */
-/* 
-let eingabe = getHumanChoice();
-
-console.log(eingabe);
- 
-
-
 
 function playRound(humanChoice, computerChoice) {
 
@@ -57,35 +53,26 @@ function playRound(humanChoice, computerChoice) {
 
               console.log("Mensch gewinnt");
               humanScore ++;
+              scoreMensch.textContent = "Human Score is: " + humanScore;
 
               }
   
   else {
     console.log("PC gewinnt");
     computerScore ++;
+    scoreComputer.textContent = "Computer Score is: " + computerScore;
 
   }
 
 }
 
+ 
+const scoreMensch = document.querySelector('#scoreMensch');
+const scoreComputer = document.querySelector('#scoreComputer');
 
+scoreMensch.style["font-size"] = "32px";
+scoreComputer.style["font-size"] = "32px";
 
-function playGame() {
+//output.textContent = "";
 
-  for (let i = 0; i < 5; i++) {
-
-    playRound(getHumanChoice(), getComputerChoice());
-console.log("human score: " + humanScore);
-console.log("computer score: " + computerScore);
-
-
-  }
-
-}
-
-playGame();  */
-/* 
-const output = document.querySelector('.output');
-output.textContent = "";
- */
 
